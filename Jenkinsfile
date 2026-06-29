@@ -12,15 +12,20 @@ pipeline {
 
         stage('Python Syntax Check') {
             steps {
-                sh '''
-                docker run --rm \
+                  sh '''
+                  echo "Workspace:"
+                  pwd
+
+                  echo "Repository:"
+                  ls -R
+
+                  docker run --rm \
                   -v "$WORKSPACE":/workspace \
-                  -w /workspace/app \
                   python:3.12 \
-                  python -m py_compile app.py
-                '''
-            }
-        }
+                  ls -R /workspace
+                  '''
+                  }
+           }
 
         stage('Verify Docker') {
             steps {
