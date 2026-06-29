@@ -1,32 +1,30 @@
 pipeline {
+
     agent any
 
     stages {
 
-        stage('Checkout Source Code') {
+        stage('Checkout') {
             steps {
-                echo 'Checking out source code from GitHub...'
                 checkout scm
             }
         }
 
-        stage('Verify Workspace') {
+        stage('Python Syntax Check') {
             steps {
                 sh '''
-                echo "Current Directory:"
-                pwd
-
-                echo "Repository Contents:"
-                ls -la
+                docker run --rm \
+                  -v "$WORKSPACE":/workspace \
+                  -w /workspace/app \
+                  python:3.12 \
+                  python -m py_compile app.py
                 '''
             }
         }
 
         stage('Verify Docker') {
             steps {
-                sh '''
-                docker --version
-                '''
+                sh 'docker --version'
             }
         }
     }
@@ -40,4 +38,4 @@ pipeline {
             echo 'Pipeline failed.'
         }
     }
-}
+}}
