@@ -30,13 +30,14 @@ pipeline {
             steps {
                   sh '''
                   docker build -t flask-ecommerce:${BUILD_NUMBER} ./app
+                  docker tag flask-ecommerce:${BUILD_NUMBER} flask-ecommerce:latest
                   '''
                   }
            }
         stage('List Docker Images') {
             steps {
                   sh '''
-                  docker images
+                  docker images | grep flask-ecommerce
                   '''
                   }
            }
