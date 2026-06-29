@@ -34,6 +34,30 @@ pipeline {
                   '''
                   }
            }
+         stage('Docker Login') {
+              steps {
+                   withCredentials([usernamePassword(
+                   credentialsId: 'dockerhub',
+                   usernameVariable: 'DOCKER_USER',
+                   passwordVariable: 'DOCKER_PASS'
+                   )]) {
+                   sh '''
+                   echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+                   '''
+                       }
+                   }
+          }
+       stage('Push Docker Image') {
+                                 steps {
+                                       sh '''
+                                       docker tag flask-ecommerce:${BUILD_NUMBER} vishwasgm29/flask-ecommerce:${BUILD_NUMBER}
+                                       docker tag flask-ecommerce:${BUILD_NUMBER} vishwasgm29/flask-ecommerce:latest
+
+                                       docker push vishwasgm29/flask-ecommerce:${BUILD_NUMBER}
+                                       docker push vishwasgm29/flask-ecommerce:latest
+                                       '''
+                                       }
+           }
         stage('List Docker Images') {
             steps {
                   sh '''
