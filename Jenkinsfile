@@ -26,6 +26,20 @@ pipeline {
                   '''
                   }
            }
+        stage('Build Docker Image') {
+            steps {
+                  sh '''
+                  docker build -t flask-ecommerce:${BUILD_NUMBER} ./app
+                  '''
+                  }
+           }
+        stage('List Docker Images') {
+            steps {
+                  sh '''
+                  docker images
+                  '''
+                  }
+           }
 
         stage('Verify Docker') {
             steps {
