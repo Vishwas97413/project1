@@ -26,3 +26,8 @@ venv/
 
 # Docker
 *.tar
+
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
