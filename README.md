@@ -197,17 +197,33 @@ The application is accessible through the AWS Load Balancer.
 
 # Screenshots
 
-Include screenshots of:
-
-- Jenkins Pipeline
-- Terraform Apply
-- AWS EKS Cluster
-- Worker Nodes
-- kubectl get nodes
-- kubectl get pods
-- kubectl get svc
-- Flask Application Running
-- AWS Load Balancer
+## Jenkins Pipeline
+![Jenkins](screenshots/Jenkins-dashboard.png)
+![Jenkins](screenshots/Jenkins-pipeline-start.png)
+![Jenkins](screenshots/Jenkins-pipeline-success.png)
+## Terraform 
+![Terraform](screenshots/terraform-apply.png)
+![Terraform](screenshots/terraform-state-list.png)
+## Docker Images
+![Kubernetes](screenshots/docker-images.png)
+## AWS EKS Cluster
+![AWS](screenshots/eks-cluster.png)
+## AWS VPC
+![AWS](screenshots/vpc.png)
+## AWS Load Balancer
+![AWS](screenshots/load-balancer .png)
+## AWS Subnet
+![AWS](screenshots/subnet.png)
+## AWS NAT Gateway
+![AWS](screenshots/NAT-gateway.png)
+## kubectl nodes
+![Kubernetes](screenshots/kubectl-nodes.png)
+## kubectl pods
+![Kubernetes](screenshots/kubectl-pods.png)
+## kubectl services
+![Kubernetes](screenshots/kubectl-services.png)
+## Flask Application Running
+![Homepage](screenshots/home-page.png)
 
 ---
 
