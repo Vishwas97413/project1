@@ -211,7 +211,7 @@ The application is accessible through the AWS Load Balancer.
 ## AWS VPC
 ![AWS](screenshots/vpc.png)
 ## AWS Load Balancer
-![AWS](screenshots/load-balancer .png)
+![AWS](screenshots/load-balancer.png)
 ## AWS Subnet
 ![AWS](screenshots/subnet.png)
 ## AWS NAT Gateway
